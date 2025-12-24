@@ -1,4 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  List,
+  ListItem,
+  Paper,
+} from "@mui/material";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -9,23 +19,36 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <header>
-        <h2>Dashboard</h2>
-        <button>Quản lý sản phẩm</button>
-        <button>Quản lý users</button>
-        <button onClick={handleLogout}>Logout</button>
-      </header>
+      <Box>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            Dashboard
+          </Typography>
 
-      <hr />
+          <Button color="inherit">Quản lý sản phẩm</Button>
+          <Button color="inherit">Quản lý users</Button>
+          <Button color="inherit" onClick={handleLogout}>
+            Logout
+          </Button>
+        </Toolbar>
+      </AppBar>
 
-      <h3>Danh sách sản phẩm (fake)</h3>
-      <ul>
-        <li>Sản phẩm A</li>
-        <li>Sản phẩm B</li>
-        <li>Sản phẩm C</li>
-      </ul>
-    </div>
+      
+      <Box sx={{ p: 3 }}>
+        <Paper sx={{ p: 2 }}>
+          <Typography variant="h6" mb={2}>
+            Danh sách sản phẩm (fake)
+          </Typography>
+
+          <List>
+            <ListItem>Sản phẩm A</ListItem>
+            <ListItem>Sản phẩm B</ListItem>
+            <ListItem>Sản phẩm C</ListItem>
+          </List>
+        </Paper>
+      </Box>
+    </Box>
   );
 }
 
